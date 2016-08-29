@@ -1,0 +1,135 @@
+{% extends "header.html" %}
+
+{% block content %}
+    <h2>Microenvironment Color Deconvolution and Segmentation</h2>
+    <h3>_________________</h3>
+    <h3>Image Upload</h3>
+
+    <!-- Upload form. Note enctype attribute! -->
+            <form action="{% url "uploadpage" %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <p>{{ form.non_field_errors }}</p>
+
+                <p>{{ form.imfile.label_tag }} {{ form.imfile.help_text }}</p>
+
+                <p>
+                    {{ form.imfile.errors }}
+                    {{ form.imfile }}
+                </p>
+
+                <p><input type="submit" value="Upload"/></p>
+
+
+
+
+            </form>
+
+
+            <h3>View Images</h3>
+        <!-- List of uploaded images -->
+            {% if images %}
+                <ul>
+                    {% for image in images %}
+                        <li><a href="{{ image.imfile.url }}">{{ image.imfile.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No images.</p>
+            {% endif %}
+
+    <h3>_________________</h3>
+    <!-- Execute script  -->
+
+
+
+    <!--
+    '''
+    <h3>Random Walker Segmentation</h3>
+            <form action="{% url "uploadpage" %}" method="post">
+                {% csrf_token %}
+
+                {{ form.as_table }}
+                <!--
+                <p>
+                    <input type="checkbox" name="check" value="">
+                       Stain:
+                    <input type="number" name="parameter" value="0">
+
+                    <input type="text" name="label" value="Label">
+                </p>
+
+                <p>
+                    <input type="checkbox" name="check" value="">
+                       Stain:
+                    <input type="number" name="parameter" value="0">
+
+                    <input type="text" name="label" value="Label">
+                </p>
+
+                <p>
+                    <input type="checkbox" name="check" value="">
+                       Stain:
+                    <input type="number" name="parameter" value="0">
+
+                    <input type="text" name="label" value="Label">
+                </p>
+
+                __________________
+
+                <br />
+                Or
+                <br />
+                <h4>Input custom RGB values for stain</h4>
+                <br />
+
+                <p>
+                       Stain 1:
+                    <input type={{ form.CustomRGB.colorvalue }} name="parameter" value="0">
+                    <input type={{ form.CustomRGB.colorvalue }} name="parameter" value="0">
+                    <input type={{ form.CustomRGB.colorvalue }} name="parameter" value="0">
+                    <input type="text" name="label" value="Label">
+                </p>
+                <br />
+                <p>
+
+                       Stain 2:
+                    <input type={{ form.CustomRGB.colorvalue }} name="parameter" value="0">
+                    <input type={{ form.CustomRGB.colorvalue }} name="parameter" value="0">
+                    <input type={{ form.CustomRGB.colorvalue }} name="parameter" value="0">
+                    <input type="text" name="label" value="Label">
+                </p>
+                <br />
+                <p>
+
+                       Stain 3:
+                    <input type={{ form.CustomRGB.colorvalue }} name="parameter" value="0">
+                    <input type={{ form.CustomRGB.colorvalue }} name="parameter" value="0">
+                    <input type={{ form.CustomRGB.colorvalue }} name="parameter" value="0">
+
+                    <input type="text" name="label" value="Label">
+                </p>
+
+                <br />
+                <input type="submit" value="Submit">
+
+            </form>
+            <br />
+            <p> Post Data: {{ info }} </p>
+            <p> Result: {{ output }} </p>
+'''
+    -->
+
+    <form action="{% url "uploadpage" %}" method="post">{% csrf_token %}
+        {{ form.as_table }}
+        <input type="text" name="info_name" value="info_value">
+        <input type="submit" value="Submit">
+    </form>
+
+    <p> Post Data: {{ info }} </p>
+    <p> Result: {{ output }} </p>
+
+
+
+
+ {% endblock %}

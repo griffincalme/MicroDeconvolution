@@ -1,0 +1,5 @@
+homepage
+tutorial
+use key to enter website app
+upload images, provide personal access key with random module
+allow user to tweak parameters, explain each
