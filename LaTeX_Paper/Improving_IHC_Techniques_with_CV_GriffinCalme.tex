@@ -1,12 +1,8 @@
-% Use only LaTeX2e, calling the article.cls class and 12-point type.
+%Loosely based on "Science" journal template.
 
 \documentclass[12pt]{article}
 
-% Users of the {thebibliography} environment or BibTeX should use the
-% scicite.sty package, downloadable from *Science* at
-% www.sciencemag.org/about/authors/prep/TeX_help/ .
-% This package should properly format in-text
-% reference calls and reference-list numbers.
+
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
@@ -15,16 +11,6 @@
 \usepackage{algorithmic}
 \usepackage{algorithm}
 
-% Use times if you have the font installed; otherwise, comment out the
-% following line.
-
-\usepackage{times}
-
-% The preamble here sets up a lot of new/revised commands and
-% environments.  It's annoying, but please do *not* try to strip these
-% out into a separate .sty file (which could lead to the loss of some
-% information when we convert the file to other formats).  Instead, keep
-% them in the preamble of your main LaTeX source file.
 
 
 % The following parameters seem to provide a reasonable page setup.
@@ -66,16 +52,10 @@
 {\end{list}}
 
 
-% Include your paper's title here
 
 \title{Improving Immunohistochemistry Scoring Techniques for Cancer Biopsies with Computer Vision Algorithms} 
 
 
-% Place the author information here.  Please hand-code the contact
-% information and notecalls; do *not* use \footnote commands.  Let the
-% author contact information appear immediately below the author names
-% as shown.  We would also prefer that you don't change the type-size
-% settings shown here.
 
 \author
 {Griffin R. Calme\\
@@ -86,10 +66,8 @@
 \normalsize{E-mail:  griffincalme@wayne.edu}
 }
 
-% Include the date command, but leave its argument blank.
 
-\date{}
-
+\date{August 28, 2016}
 
 
 %%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%
@@ -111,7 +89,7 @@
 % Place your abstract within the special {sciabstract} environment.
 
 \begin{sciabstract}
-  Cancers, including breast cancer, will continue to affect more lives as other modes of premature death such as infectious diseases, smoking, and accidents are declining. Immunohistochemistry offers a powerful technique for identifying proteins of interest in the tumor microenvironment. Tumor and immune proteins provide insight into the disease’s characteristics and progress. Automated computer vision algorithms provide a unique ability of fast and inexpensive specimen analysis. Color deconvolution and random walker segmentation are two algorithms that, when combined in series, show consistent segmentation ability.
+  Cancers, including breast cancer, will continue to affect more lives as other modes of premature death such as infectious diseases, smoking, and accidents are declining. Immunohistochemistry offers a powerful technique for identifying proteins of interest in the tumor microenvironment. Tumor and immune proteins provide insight into the disease's characteristics and progress. Automated computer vision algorithms provide a unique ability of fast and inexpensive specimen analysis. Color deconvolution and random walker segmentation are two algorithms that, when combined in series, show consistent segmentation ability.
 
 
 
@@ -122,21 +100,12 @@
 
 \indent \textit{Keywords} --- Breast cancer, color deconvolution, immunohistochemistry, random walker \indent segmentation, CD3, IL-10, IFN$\gamma$
 
-% In setting up this template for *Science* papers, we've used both
-% the \section* command and the \paragraph* command for topical
-% divisions.  Which you use will of course depend on the type of paper
-% you're writing.  Review Articles tend to have displayed headings, for
-% which \section* is more appropriate; Research Articles, when they have
-% formal topical divisions at all, tend to signal them with bold text
-% that runs into the paragraph, for which \paragraph* is the right
-% choice.  Either way, use the asterisk (*) modifier, as shown, to
-% suppress numbering.
 
 
 \break
 \section*{Introduction}
 
-An estimated 12.3 percent of women in the United States will be diagnosed with breast cancer at some point in their lifetime [1]. As the number of new cases has risen over the past few decades, actual deaths from breast cancer have declined due to advances in detection and treatment. The 5-year survival rate has increased from 75.2\% in 1975 to 90.6\% in 2008 [1]. Because other causes of premature death such as infectious disease, smoking, and accidents are in decline, cancers—such as breast cancer—will continue to affect more lives. Research into the characterization of individual patient’s cancers will become increasingly useful in medical practice as more people begin to live with the diagnosis and as technology advances to the point where it is feasible and clinically effective to characterize cancers based on protein expression or cellular activity in the tumor microenvironment and tailor therapy to this data.
+An estimated 12.3 percent of women in the United States will be diagnosed with breast cancer at some point in their lifetime [1]. As the number of new cases has risen over the past few decades, actual deaths from breast cancer have declined due to advances in detection and treatment. The 5-year survival rate has increased from 75.2\% in 1975 to 90.6\% in 2008 [1]. Because other causes of premature death such as infectious disease, smoking, and accidents are in decline, cancers---such as breast cancer---will continue to affect more lives. Research into the characterization of individual patient's cancers will become increasingly useful in medical practice as more people begin to live with the diagnosis and as technology advances to the point where it is feasible and clinically effective to characterize cancers based on protein expression or cellular activity in the tumor microenvironment and tailor therapy to this data.
 
 
 \section*{Immunohistochemistry Theory \& Background}
@@ -151,7 +120,7 @@ IHC stains allow for the identification of tumor cell subtypes and different lym
 
 \subsection*{IHC classification of immune cells}
 
-In addition to characterization of the tumor by IHC, the immune response of the tumor microenvironment can also be characterized according to cellular protein expression. Lymphocyte subtypes such as CD3+, CD4+, CD8+, FOXP3+, PD1+, CTLA4+ and others can be identified based on IHC staining [2]. In addition, cytokines released into the extracellular matrix---such as interleukins, tumor necrosis factors and interferons---can be detected with IHC. This information can be factored in with tumor IHC scores to generate a broader picture of the patient’s individual disease.
+In addition to characterization of the tumor by IHC, the immune response of the tumor microenvironment can also be characterized according to cellular protein expression. Lymphocyte subtypes such as CD3+, CD4+, CD8+, FOXP3+, PD1+, CTLA4+ and others can be identified based on IHC staining [2]. In addition, cytokines released into the extracellular matrix---such as interleukins, tumor necrosis factors and interferons---can be detected with IHC. This information can be factored in with tumor IHC scores to generate a broader picture of the patient's individual disease.
 
 There is research suggesting that T cell infiltration in breast cancer is correlated with better responses to chemotherapy, increased disease-free survival (DFS), and increased breast cancer-specific survival (BCSS) [9-12]. The major subtype associated with positive clinical outcomes is CD8+ T cells. Patients with increased cytotoxic CD8+ lymphocyte tumor infiltration are more likely to have longer breast cancer-specific survival, especially in patients with triple negative breast cancers (TNBC)---negative staining for ER, PR, and HER-2/neu [9,11]. Additionally, the role of CD4+ cells in patient outcome is less clear, but the presence of this subtype does show some weak correlation with lengthened BCSS [9,10,12]. However, staining for CD4+ cells presents a problem as both T helper cells and T regulatory cells express this protein---introducing a confounding variable into the study of this relationship. This poses a significant concern as the presence of FOXP3+ T regulatory cells and PD-1+ T cells in the tumor microenvironment has been correlated with shortened DFS in certain patient groups, such as ER+ [9,10,12]. Additionally, in patients with ER+ or HER-2+ tumors, there was no CD8 to patient outcome correlation [11]. This illustrates the need for a more comprehensive understanding of relevant cells and proteins before utilizing IHC data in patient care. 
 
@@ -163,7 +132,7 @@ The role of cytokine concentration in the tumor microenvironment is, likewise, u
 
 \section*{The Promises of Automation}
 
-Historically, immunohistochemical analysis has been highly qualitative. Observers view each stained sample and search for positive staining for proteins of interest. The use of visual counting methods and qualitative scoring invariably introduces errors and biases. Human observers are prone to memory errors, produce differing counts, and require intense concentration to produce consistent results. Traditionally, histological characterization is expressed either in percentage of positively stained cells, intensity of staining or morphological characteristics of the cells. These features are used to group samples into a predefined score. There are a great deal of different grading methods in the literature and most groups use their own independent methods [18]. This problem obstructs result replication and the efforts of meta-analyses. The difference between a score of “1+” and a score of “2+” depends on the observer and is largely subjective—assuming the studies used numerical grades rather than highly qualitative categories such as “intense staining” or arbitrary scales such as “50\% staining.” 
+Historically, immunohistochemical analysis has been highly qualitative. Observers view each stained sample and search for positive staining for proteins of interest. The use of visual counting methods and qualitative scoring invariably introduces errors and biases. Human observers are prone to memory errors, produce differing counts, and require intense concentration to produce consistent results. Traditionally, histological characterization is expressed either in percentage of positively stained cells, intensity of staining or morphological characteristics of the cells. These features are used to group samples into a predefined score. There are a great deal of different grading methods in the literature and most groups use their own independent methods [18]. This problem obstructs result replication and the efforts of meta-analyses. The difference between a score of ``1+" and a score of ``2+" depends on the observer and is largely subjective---assuming the studies used numerical grades rather than highly qualitative categories such as ``intense staining" or arbitrary scales such as ``50\% staining."
 
 The Gleason score is one popular grading system for prostate cancers. When comparing Gleason scores for different observers, it was found by R. V. Singh et al. that scores were in agreement only 43.3\% of the time, 92.3\% were within +/- 1 of agreement, with a systematic review of previous studies concluding that interobserver scoring agreement is similarly low [19]. Several other studies comparing human histological scoring found similar reproducibility issues, and have illustrated the great deal of labor and resources required for visual data gathering [20-22]. These problems stem from the fact that the human visual system is a comparative pattern analyzer rather than a quantitative system [20]. 
 
@@ -174,7 +143,7 @@ Automation of this image analysis workflow using computer vision provides a good
 
 \section*{Materials}
 
-This project used de-identified breast tumor biopsies and axillary lymph node biopsies that had been obtained from breast cancer patients at the Karmanos Cancer Institute (KCI). The biopsies were formalin fixed and embedded in paraffin blocks for sectioning with a microtome and transfer to a glass microscope slide. Specimens were de-paraffinized, stained, and fixed. CD3 was stained for with a 3,3'-diaminobenzidine (DAB) kit from GBI Labs, IL-10 and IFN$\gamma$ were stained with permanent red on two identical but separate slides using a kit from GBI Labs, and lastly hematoxylin was used as a counterstain. Primary antibodies for the CD3, IL-10 and IFN$\gamma$ were also provided by Lawrence G. Lum’s BMT/Immunotherapy laboratory at KCI. A set of images was obtained by collecting both previously captured images and newly captured images, courtesy of Lawrence G. Lum’s laboratory. The images were taken in brightfield at zoom levels of 4x, 10x, and 20x with digital microscopes and saved in .jpg format with low compression.
+This project used de-identified breast tumor biopsies and axillary lymph node biopsies that had been obtained from breast cancer patients at the Karmanos Cancer Institute (KCI). The biopsies were formalin fixed and embedded in paraffin blocks for sectioning with a microtome and transfer to a glass microscope slide. Specimens were de-paraffinized, stained, and fixed. CD3 was stained for with a 3,3'-diaminobenzidine (DAB) kit from GBI Labs, IL-10 and IFN$\gamma$ were stained with permanent red on two identical but separate slides using a kit from GBI Labs, and lastly hematoxylin was used as a counterstain. Primary antibodies for the CD3, IL-10 and IFN$\gamma$ were also provided by Lawrence G. Lum's BMT/Immunotherapy laboratory at KCI. A set of images was obtained by collecting both previously captured images and newly captured images, courtesy of Lawrence G. Lum's laboratory. The images were taken in brightfield at zoom levels of 4x, 10x, and 20x with digital microscopes and saved in .jpg format with low compression.
 
 
 \section*{Tools Used and Project Source}
@@ -196,7 +165,7 @@ The first obstacle in algorithm design for IHC analysis is that standard charge-
 There are multiple algorithms for unmixing stain information from an RGB source image. Some are capable of separating pixels convoluted with more than one stain, others are not. Resulting stain maps can be binary (\textit{positive} or \textit{negative}), probability-based (likelihood of stain presence), or density-based (a continuous intensity variable) with a plethora of methods for estimating this output stain map [2,6]. Blind color decomposition has recently been proposed as a premier method for stain unmixing. This method models absorption, uses a standard CCD camera, produces a density map, and is able to unmix pixels with two stains present [6]. Unfortunately, a key requirement of this algorithm is that the stains used must model the Beer-Lambert Law of light absorption. 3,3'-Diaminobenzidine (DAB), one of the most common and widely-available immunohistochemical stains, produces color via scattering rather than pure absorption and thus does not follow the Beer-Lambert relationship [2,6,24,25]. Color deconvolution as developed by Ruifrok \& Johnston remains the most promising candidate for unmixing RGB information, it is capable of separating up to three stain channels into a density map using standard RGB images [6,25,26]. 
 
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{CD1.png}
+  \includegraphics[width=\linewidth]{1CD.png}
   \caption{Color deconvolution for three stain channels. White signifies more intensity, black signifies less. IHC specimen stained for CD3 with DAB, Hematoxylin, and IL-10 with permanent red.}
   \label{fig:ColorDeconvolution1}
 \end{figure}
@@ -230,26 +199,27 @@ After the stain intensity map is generated for each stain, segmentation algorith
 \STATE $I = I$
 \ENDIF
 \ENDFOR
+\STATE
 \STATE Where \textit{I} is the pixel's intensity
 \STATE and \textit{T} is the threshold value
 \end{algorithmic}
 \end{algorithm}
 
 
-The use of global thresholds is not suitable for majority of IHC images, which tend to have poorly defined contrast and where the edges of the image are often darker than the center due to uneven illumination [2]. Thresholds also fail to interpolate for pixels that reside interior to groups of positively identified pixels, a key goal of segmentation. Lastly, pixel-based thresholds often leave spurious false positive hits.
+\noindent The use of global thresholds is not suitable for majority of IHC images, which tend to have poorly defined contrast and where the edges of the image are often darker than the center due to uneven illumination [2]. Thresholds also fail to interpolate for pixels that reside interior to groups of positively identified pixels, a key goal of segmentation. Lastly, pixel-based thresholds often leave spurious false positive hits.
 
 
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{DABglobal2.png}
+  \includegraphics[width=\linewidth]{2DABglobal.png}
   \caption{Comparison of DAB global threshold with intensity conservation at T = 0.5 (50\%). IHC specimen stained for CD3 with DAB, Hematoxylin, and IL-10 with permanent red.}
   \label{fig:DABglobal2}
 \end{figure}
 
 
-Adaptive thresholds have the potential to correct for regional variations in lighting by utilizing localized intensity information to determine the threshold value for each pixel based on the defined regional block size [2,27]. This method, by definition, doesn’t allow for defining a threshold intensity and so easily fails to capture what the observer is looking for in a positive-negative boundary condition. Edge-based detection using the \textit{Canny edge detector}, \textit{Sobel operator}, and other methods have also been proposed as segmentation methods. These methods are error prone due to noise, poorly defined boundaries between stain and background, and overlapping cells [2]. Pre-trained feature detectors like \textit{Haar cascades}, that identify objects based on an idealized template of features (highly effective in face detection) also fail due to large inter-cellular heterogeneity [2]. Yet, other researchers have proposed using blob-detection algorithms such as \textit{Difference-of-Gaussian} (DoG) that detect blob-like regions which stand out from the background based on intensity [28]. This method would seem promising due to the globular nature of cells, but it lacks resiliency for overlapping cells and cells of different sizes and shapes---all common occurrences in IHC specimens. In addition, blob detection fails to be useful for quantifying cytokines, which can be amorphously diffused in the extracellular matrix, as it is inherently cell-based rather than area-based segmentation.
+Adaptive thresholds have the potential to correct for regional variations in lighting by utilizing localized intensity information to determine the threshold value for each pixel based on the defined regional block size [2,27]. This method, by definition, does not allow for defining a threshold intensity and so easily fails to capture what the observer is looking for in a positive-negative boundary condition. Edge-based detection using the \textit{Canny edge detector}, \textit{Sobel operator}, and other methods have also been proposed as segmentation methods. These methods are error prone due to noise, poorly defined boundaries between stain and background, and overlapping cells [2]. Pre-trained feature detectors like \textit{Haar cascades}, that identify objects based on an idealized template of features (highly effective in face detection) also fail due to large inter-cellular heterogeneity [2]. Yet, other researchers have proposed using blob-detection algorithms such as \textit{Difference-of-Gaussian} (DoG) that detect blob-like regions which stand out from the background based on intensity [28]. This method would seem promising due to the globular nature of cells, but it lacks resiliency for overlapping cells and cells of different sizes and shapes---all common occurrences in IHC specimens. In addition, blob detection fails to be useful for quantifying cytokines, which can be amorphously diffused in the extracellular matrix, as it is inherently cell-based rather than area-based segmentation.
 
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{BlobDetect3.png}
+  \includegraphics[width=\linewidth]{3BlobDetect.png}
   \caption{T-cell, cell nuclei, and IL-10 blob detection. Specimen stained for CD3 with DAB, IL-10 with permanent red, and a hematoxylin counterstain. N\textsubscript{DAB}= 42, N\textsubscript{hema}= 188, N\textsubscript{red}= 10.}
   \label{fig:BlobDetect3}
 \end{figure}
@@ -257,7 +227,7 @@ Adaptive thresholds have the potential to correct for regional variations in lig
 
 
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{BlobDetectHard4.png}
+  \includegraphics[width=\linewidth]{4BlobDetectHard.png}
   \caption{T-cell blob detection. IHC specimen stained for CD3 with DAB, Hematoxylin, and IL-10 with permanent red.  Example of overlapping cells causing systemic false negatives. N\textsubscript{DAB}= 918.}
   \label{fig:BlobDetectHard4}
 \end{figure}
@@ -270,7 +240,7 @@ For this project, \textit{random walker segmentation} (RWS) was used as develope
 
 
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{RWSvsWatershed5.png}
+  \includegraphics[width=\linewidth]{5RWSvsWatershed.png}
   \caption{DAB segmentation comparing random walker to watershed. IHC specimen stained for CD3 with DAB, Hematoxylin, and IL-10 with permanent red. Segmentation marker threshold: bottom = .3, top = .5}
   \label{fig:RWSvsWatershed5}
 \end{figure}
@@ -282,19 +252,19 @@ For this project, \textit{random walker segmentation} (RWS) was used as develope
 
 
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{ColorDeconvFlow6.png}
+  \includegraphics[width=\linewidth]{6ColorDeconvFlow.png}
   \caption{First proposed step.}
   \label{fig:ColorDeconvFlow6}
 \end{figure}
 
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{SeedThreshold7.png}
+  \includegraphics[width=\linewidth]{7SeedThreshold.png}
   \caption{Second proposed step.}
   \label{fig:SeedThreshold7}
 \end{figure}
 
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{RandomWalkSeg8.png}
+  \includegraphics[width=\linewidth]{8RandomWalkSeg.png}
   \caption{Third proposed step.
   Flowchart diagram for the proposed method of IHC stain segmentation of DAB (CD3), hematoxylin, and permanent red (IL-10/IFNγ). Source image dimensions: 748x844.}
   \label{fig:RandomWalkSeg8}
@@ -302,7 +272,7 @@ For this project, \textit{random walker segmentation} (RWS) was used as develope
 
 
 
-\begin{table}[]
+\begin{table}[H]
 \centering
 \caption{Program output}
 \label{program output}
@@ -327,10 +297,10 @@ Where \textit{I\textsubscript{C}} is the intensity of light detected by the digi
 
 
 
-\begin{table}[]
+\begin{table}[H]
 \centering
 \caption{8 bit channel values (24-bit image)}
-\label{my-label}
+\label{color channel values}
 \begin{tabular}{|l|l|l|l}
 \cline{1-3}
 R   & G   & B   &                                    \\ \hline
@@ -341,267 +311,383 @@ R   & G   & B   &                                    \\ \hline
 \end{table}
 
 
-The optical density (OD) is defined as \begin{math}OD_C = -log_10\end{math} [25].
+\noindent The optical density (OD) is defined as \begin{math}OD_C = -log\textsubscript{10}\Big(\frac{I_C}{I_{0,C}}\Big) \end{math} [25]. OD\textsubscript{C} for each stain channel can be represented as a matrix of 3 (maximum) rows of a 1x3 RGB vector, one row for each stain. This matrix must be normalized with ortho-normal transformation of the RGB channels to obtain information about the effect of each stain on the overall color profile [25]. After conversion to decimal and subsequent calculation of OD, the resulting OD matrix is as follows:
+
+
+\begin{table}[H]
+\centering
+\caption{OD Matrix}
+\label{OD matrix}
+\begin{tabular}{|l|l|l|l}
+\cline{1-3}
+R   & G   & B   &                                    \\ \hline
+0.181 & 0.200 & 0.080 & \multicolumn{1}{l|}{Hematoxylin}   \\ \hline
+0.034 & 0.901  & 0.503  & \multicolumn{1}{l|}{Permanent Red} \\ \hline
+0.101 & 0.211 & 0.293 & \multicolumn{1}{l|}{DAB}           \\ \hline
+\end{tabular}
+\end{table}
 
 
 
+\noindent The equation for normalization of the OD for each stain channel is \begin{math}\hat{p} = \frac{p_{s,c}}{\sqrt{p_{s,R}^2 + p_{s,G}^2 + p_{s,B}^2}}\end{math} [25]
 
 
-\section*{Formatting Citations}
+\begin{table}[H]
+\centering
+\caption{Normalized OD Matrix}
+\label{Normalized OD}
+\begin{tabular}{|l|l|l|l}
+\cline{1-3}
+R   & G   & B   &                                    \\ \hline
+0.644 & 0.710 & 0.285 & \multicolumn{1}{l|}{Hematoxylin}   \\ \hline
+0.033 & 0.873  & 0.487  & \multicolumn{1}{l|}{Permanent Red} \\ \hline
+0.270 & 0.562 & 0.781 & \multicolumn{1}{l|}{DAB}           \\ \hline
+\end{tabular}
+\end{table}
 
-Citations can be handled in one of three ways.  The most
-straightforward (albeit labor-intensive) would be to hardwire your
-citations into your \LaTeX\ source, as you would if you were using an
-ordinary word processor.  Thus, your code might look something like
-this:
+\noindent The inverse of the normalized matrix is then calculated; the result is the color deconvolution matrix.
 
-
-\begin{quote}
-\begin{verbatim}
-However, this record of the solar nebula may have been
-partly erased by the complex history of the meteorite
-parent bodies, which includes collision-induced shock,
-thermal metamorphism, and aqueous alteration
-({\it 1, 2, 5--7\/}).
-\end{verbatim}
-\end{quote}
+\begin{math}C = M^{-1}[y] = D[y]\end{math} [25]
 
 
-\noindent Compiled, the last two lines of the code above, of course, would give notecalls in {\it Science\/} style:
+\begin{table}[H]
+\centering
+\caption{Inverse of Normalized Matrix}
+\label{Inverse Normalized}
+\begin{tabular}{|l|l|l|l}
+\cline{1-3}
+R   & G   & B   &                                    \\ \hline
+1.477 & -1.430 & 0.351 & \multicolumn{1}{l|}{Hematoxylin}   \\ \hline
+0.384 & 1.540  & -1.100  & \multicolumn{1}{l|}{Permanent Red} \\ \hline
+-0.787 & -0.620 & 1.950 & \multicolumn{1}{l|}{DAB}           \\ \hline
+\end{tabular}
+\end{table}
 
-\begin{quote}
-\ldots thermal metamorphism, and aqueous alteration ({\it 1, 2, 5--7\/}).
-\end{quote}
+\noindent This final inverse matrix can be applied to the image to separate out the three stain channels.
 
-Under the same logic, the author could set up his or her reference list as a simple enumeration,
+\section*{Random Walker Segmentation}
 
-\begin{quote}
-\begin{verbatim}
-{\bf References and Notes}
-
-\begin{enumerate}
-\item G. Gamow, {\it The Constitution of Atomic Nuclei
-and Radioactivity\/} (Oxford Univ. Press, New York, 1931).
-\item W. Heisenberg and W. Pauli, {\it Zeitschr.\ f.\ 
-Physik\/} {\bf 56}, 1 (1929).
-\end{enumerate}
-\end{verbatim}
-\end{quote}
-
-\noindent yielding
-
-\begin{quote}
-{\bf References and Notes}
-
-\begin{enumerate}
-\item G. Gamow, {\it The Constitution of Atomic Nuclei and
-Radioactivity\/} (Oxford Univ. Press, New York, 1931).
-\item W. Heisenberg and W. Pauli, {\it Zeitschr.\ f.\ Physik} {\bf 56},
-1 (1929).
-\end{enumerate}
-\end{quote}
-
-That's not a solution that's likely to appeal to everyone, however ---
-especially not to users of B{\small{IB}}\TeX\ \cite{inclme}.  If you
-are a B{\small{IB}}\TeX\ user, we suggest that you use the
-\texttt{Science.bst} bibliography style file and the
-\texttt{scicite.sty} package, both of which we are downloadable from our author help site
-(http://www.sciencemag.org/about/authors/prep/TeX\_help/).  You can also
-generate your reference lists by using the list environment
-\texttt{\{thebibliography\}} at the end of your source document; here
-again, you may find the \texttt{scicite.sty} file useful.
-
-Whether you use B{\small{IB}}\TeX\ or \texttt{\{thebibliography\}}, be
-very careful about how you set up your in-text reference calls and
-notecalls.  In particular, observe the following requirements:
-
-\begin{enumerate}
-\item Please follow the style for references outlined at our author
-  help site and embodied in recent issues of {\it Science}.  Each
-  citation number should refer to a single reference; please do not
-  concatenate several references under a single number.
-\item Please cite your references and notes in text {\it only\/} using
-  the standard \LaTeX\ \verb+\cite+ command, not another command
-  driven by outside macros.
-\item Please separate multiple citations within a single \verb+\cite+
-  command using commas only; there should be {\it no space\/}
-  between reference keynames.  That is, if you are citing two
-  papers whose bibliography keys are \texttt{keyname1} and
-  \texttt{keyname2}, the in-text cite should read
-  \verb+\cite{keyname1,keyname2}+, {\it not\/}
-  \verb+\cite{keyname1, keyname2}+.
-\end{enumerate}
-
-\noindent Failure to follow these guidelines could lead
-to the omission of the references in an accepted paper when the source
-file is translated to Word via HTML.
-
-\section*{Handling Math, Tables, and Figures}
-
-Following are a few things to keep in mind in coding equations,
-tables, and figures for submission to {\it Science}.
-
-\paragraph*{In-line math.}  The utility that we use for converting
-from \LaTeX\ to HTML handles in-line math relatively well.  It is best
-to avoid using built-up fractions in in-line equations, and going for
-the more boring ``slash'' presentation whenever possible --- that is,
-for \verb+$a/b$+ (which comes out as $a/b$) rather than
-\verb+$\frac{a}{b}$+ (which compiles as $\frac{a}{b}$).  Likewise,
-HTML isn't tooled to handle certain overaccented special characters
-in-line; for $\hat{\alpha}$ (coded \verb+$\hat{\alpha}$+), for
-example, the HTML translation code will return [\^{}$(\alpha)$].
-Don't drive yourself crazy --- but if it's possible to avoid such
-constructs, please do so.  Please do not code arrays or matrices as
-in-line math; display them instead.  And please keep your coding as
-\TeX-y as possible --- avoid using specialized math macro packages
-like \texttt{amstex.sty}.
-
-\paragraph*{Displayed math.} Our HTML converter sets up \TeX\
-displayed equations using nested HTML tables.  That works well for an
-HTML presentation, but Word chokes when it comes across a nested
-table in an HTML file.  We surmount that problem by simply cutting the
-displayed equations out of the HTML before it's imported into Word,
-and then replacing them in the Word document using either images or
-equations generated by a Word equation editor.  Strictly speaking,
-this procedure doesn't bear on how you should prepare your manuscript
---- although, for reasons best consigned to a note \cite{nattex}, we'd
-prefer that you use native \TeX\ commands within displayed-math
-environments, rather than \LaTeX\ sub-environments.
-
-\paragraph*{Tables.}  The HTML converter that we use seems to handle
-reasonably well simple tables generated using the \LaTeX\
-\texttt{\{tabular\}} environment.  For very complicated tables, you
-may want to consider generating them in a word processing program and
-including them as a separate file.
-
-\paragraph*{Figures.}  Figure callouts within the text should not be
-in the form of \LaTeX\ references, but should simply be typed in ---
-that is, \verb+(Fig. 1)+ rather than \verb+\ref{fig1}+.  For the
-figures themselves, treatment can differ depending on whether the
-manuscript is an initial submission or a final revision for acceptance
-and publication.  For an initial submission and review copy, you can
-use the \LaTeX\ \verb+{figure}+ environment and the
-\verb+\includegraphics+ command to include your PostScript figures at
-the end of the compiled PostScript file.  For the final revision,
-however, the \verb+{figure}+ environment should {\it not\/} be used;
-instead, the figure captions themselves should be typed in as regular
-text at the end of the source file (an example is included here), and
-the figures should be uploaded separately according to the Art
-Department's instructions.
+This project used global thresholds to determine the seeds for random walker segmentation. The required seeds are then imagined to release a ``random walker" that wanders from each pixel. To simplify, the algorithm can be imagined to ask \textit{what is the probability that the individual walker will arrive at a given seed first?} The pixel is then associated with that seed for segmentation. Simulating this experiment would be computationally expensive, rather it can be done quickly by solving a system of sparse, symmetric positive-definite linear equations [31]. The random walker segmentation algorithm was originally designed to be interactive with the user. Users could mark seeds and then a program would segment images based on those seeds. The use of an intensity threshold to determine seeds utilizes the strengths of a global threshold for IHC computer segmentation, while improving results on soft boundaries and interpolation with random walker segmentation. The seeding algorithm is as follows:
 
 
-\section*{What to Send In}
+\begin{algorithm}
+\caption{Seeding Threshold Algorithm}
+\begin{algorithmic} 
+\FORALL{$pixels$}
+\IF{$I < T_L$}
+\STATE $S = 0$
+\ELSIF {$T_U \geq I \geq T_L$}
+\STATE $S = 1$
+\ELSIF {$I > T_U$}
+\STATE $S = 2$
+\ENDIF
+\ENDFOR
+\STATE
+\STATE Where \textit{I} is the pixel's intensity,
+\STATE \textit{T\textsubscript{U}} is the upper threshold value,
+\STATE \textit{T\textsubscript{L}} is the lower threshold value
+\STATE and \textit{S} is the seed's type at that pixel.
+\end{algorithmic}
+\end{algorithm}
 
-What you should send to {\it Science\/} will depend on the stage your manuscript is in:
+\newpage 
 
-\begin{itemize}
-\item {\bf Important:} If you're sending in the initial submission of
-  your manuscript (that is, the copy for evaluation and peer review),
-  please send in {\it only\/} a PostScript or PDF version of the
-  compiled file (including figures).  Please do not send in the \TeX\ 
-  source, \texttt{.sty}, \texttt{.bbl}, or other associated files with
-  your initial submission.  (For more information, please see the
-  instructions at our Web submission site,
-  http://www.submit2science.org/ .)
-\item When the time comes for you to send in your revised final
-  manuscript (i.e., after peer review), we require that you include
-  all source files and generated files in your upload.  Thus, if the
-  name of your main source document is \texttt{ltxfile.tex}, you
-  need to include:
-\begin{itemize}
-\item \texttt{ltxfile.tex}.
-\item \texttt{ltxfile.aux}, the auxilliary file generated by the
-  compilation.
-\item A PostScript file (compiled using \texttt{dvips} or some other
-  driver) of the \texttt{.dvi} file generated from
-  \texttt{ltxfile.tex}, or a PDF file distilled from that
-  PostScript.  You do not need to include the actual \texttt{.dvi}
-  file in your upload.
-\item From B{\small{IB}}\TeX\ users, your bibliography (\texttt{.bib})
-  file, {\it and\/} the generated file \texttt{ltxfile.bbl} created
-  when you run B{\small{IB}}\TeX.
-\item Any additional \texttt{.sty} and \texttt{.bst} files called by
-  the source code (though, for reasons noted earlier, we {\it
-    strongly\/} discourage the use of such files beyond those
-  mentioned in this document).
-\end{itemize}
-\end{itemize}
+\noindent The decimal threshold values are as follows:
 
-% Your references go at the end of the main text, and before the
-% figures.  For this document we've used BibTeX, the .bib file
-% scibib.bib, and the .bst file Science.bst.  The package scicite.sty
-% was included to format the reference numbers according to *Science*
-% style.
+\begin{table}[H]
+\centering
+\caption{Upper \& Lower Seed Threshold}
+\label{UL Seed Thresh}
+\begin{tabular}{|l|l|l}
+\cline{1-2}
+T\textsubscript{U} & T\textsubscript{L} &                                    \\ \hline
+.4   & .2   & \multicolumn{1}{l|}{Hematoxylin}   \\ \hline
+.5   & .4   & \multicolumn{1}{l|}{Permanent Red} \\ \hline
+.5   & .3   & \multicolumn{1}{l|}{DAB}           \\ \hline
+\end{tabular}
+\end{table}
 
 
-\bibliography{scibib}
-
-\bibliographystyle{Science}
+\section*{Results}
 
 
-
-% Following is a new environment, {scilastnote}, that's defined in the
-% preamble and that allows authors to add a reference at the end of the
-% list that's not signaled in the text; such references are used in
-% *Science* for acknowledgments of funding, help, etc.
-
-\begin{scilastnote}
-\item We've included in the template file \texttt{scifile.tex} a new
-environment, \texttt{\{scilastnote\}}, that generates a numbered final
-citation without a corresponding signal in the text.  This environment
-can be used to generate a final numbered reference containing
-acknowledgments, sources of funding, and the like, per {\it Science\/}
-style.
-\end{scilastnote}
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{9_IL10_20x.png}
+  \caption{Image dimensions 2560x1920
+20x zoom, red = IL-10.}
+  \label{fig:9 IL10}
+\end{figure}
 
 
+\begin{table}[H]
+\centering
+\caption{Program output}
+\label{program output}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Calculated Value} \\ \hline
+DAB (CD3) percent coverage & 13.8\% \\ \hline
+Hematoxylin percent coverage & 18.9\% \\ \hline
+Permanent red (IL-10) percent coverage & 7.4\% \\ \hline
+DAB \& hematoxylin area combined & 25.1\% \\ \hline
+DAB area / (DAB \& hema) & 55.0\% \\ \hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{10_IFNg_20x.png}
+  \caption{Image dimensions 2560x1920
+20x zoom, red = IFN$\gamma$.}
+  \label{fig:10 IFNg}
+\end{figure}
 
 
-% For your review copy (i.e., the file you initially send in for
-% evaluation), you can use the {figure} environment and the
-% \includegraphics command to stream your figures into the text, placing
-% all figures at the end.  For the final, revised manuscript for
-% acceptance and production, however, PostScript or other graphics
-% should not be streamed into your compliled file.  Instead, set
-% captions as simple paragraphs (with a \noindent tag), setting them
-% off from the rest of the text with a \clearpage as shown  below, and
-% submit figures as separate files according to the Art Department's
-% instructions.
+\begin{table}[H]
+\centering
+\caption{Program output}
+\label{program output}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Calculated Value} \\ \hline
+DAB (CD3) percent coverage & 17.2\% \\ \hline
+Hematoxylin percent coverage & 13.6\% \\ \hline
+Permanent red (IFN$\gamma$) percent coverage & 0.2\% \\ \hline
+DAB \& hematoxylin area combined & 24.7\% \\ \hline
+DAB area / (DAB \& hema & 69.7\% \\ \hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{11_IL10_20x.png}
+  \caption{Image dimensions 2560x1920
+20x zoom, red = IL-10.}
+  \label{fig:11 IL10}
+\end{figure}
 
 
-\clearpage
+\begin{table}[H]
+\centering
+\caption{Program output}
+\label{program output}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Calculated Value} \\ \hline
+DAB (CD3) percent coverage & 20.3\% \\ \hline
+Hematoxylin percent coverage & 10.8\% \\ \hline
+Permanent red (IL-10) percent coverage & 5.1\% \\ \hline
+DAB \& hematoxylin area combined & 27.9\% \\ \hline
+DAB area / (DAB \& hema) & 72.9\% \\ \hline
+\end{tabular}
+\end{table}
 
-\noindent {\bf Fig. 1.} Please do not use figure environments to set
-up your figures in the final (post-peer-review) draft, do not include graphics in your
-source code, and do not cite figures in the text using \LaTeX\
-\verb+\ref+ commands.  Instead, simply refer to the figure numbers in
-the text per {\it Science\/} style, and include the list of captions at
-the end of the document, coded as ordinary paragraphs as shown in the
-\texttt{scifile.tex} template file.  Your actual figure files should
-be submitted separately.
+%%%%%%%%%%%%%%%
 
-
-
-
-\begin{thebibliography}{9}
-
-\bibitem{latexcompanion} 
-Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
-\textit{The \LaTeX\ Companion}. 
-Addison-Wesley, Reading, Massachusetts, 1993.
- 
-\bibitem{einstein} 
-Albert Einstein. 
-\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
-[\textit{On the electrodynamics of moving bodies}]. 
-Annalen der Physik, 322(10):891–921, 1905.
- 
-\bibitem{knuthwebsite} 
-Knuth: Computers and Typesetting,
-\\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
-\end{thebibliography}
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{12_IFNg_20x.png}
+  \caption{Image dimensions 2560x1920
+20x zoom, red = IFN$\gamma$.}
+  \label{fig:12 IFNg}
+\end{figure}
 
 
+\begin{table}[H]
+\centering
+\caption{Program output}
+\label{program output}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Calculated Value} \\ \hline
+DAB (CD3) percent coverage & 27.5\% \\ \hline
+Hematoxylin percent coverage & 52.4\% \\ \hline
+Permanent red (IFN$\gamma$) percent coverage & 4.6\% \\ \hline
+DAB \& hematoxylin area combined & 59.8\% \\ \hline
+DAB area / (DAB \& hema & 45.9\% \\ \hline
+\end{tabular}
+\end{table}
+
+
+\section*{Future Considerations and Discussion}
+
+It is acknowledged that the use of staining for CD3, IL-10, and IFN$\gamma$ alone only provides
+limited information of the immune response in the microenvironment. Nevertheless, the dataset
+available proved to be adequate for designing the computer vision programs. Use of staining for more
+specific subtypes of lymphocytes and the imaging of more types of cytokines would be of interest to
+future research as there are likely to be correlations between amounts of different antigens detected and certain patient outcomes. There exists the potential to stain for many kinds of markers in the microenvironment with IHC including ER, EGFR, HER2, FOXP3, PD1, Ki-67, and any CD8+ or
+CD4+ infiltration. This would give a more comprehensive picture of the activity in the
+microenvironment.
+
+Multivariate statistical models of these markers compared to patient outcomes could lead to
+more accurate prognoses and more precise medicine. Automated machines could be developed for
+biopsy sectioning, fixing, staining, and imaging to create highly controlled environments and obtain a
+truly quantitative assessment of proteins in the microenvironment. Both color deconvolution and
+random walker segmentation have linear algebra operations that could potentially be parallelized to a GPU (graphics processing unit) further increasing computational speed. Machine learning classifiers
+could potentially be used to analyze this data and classify patients into diagnostic, prognostic, and
+therapy categories. In this system, patients could receive care that was better tailored to their specific disease---based
+on tumor markers, immune response, and cytokine profile.
+
+The human visual system proves to be highly advanced as there are still difficulties in creating
+automated computer vision systems that can replicate the resiliency of human vision to various image
+imperfections. Systematic over or underestimation in automated analysis occurs due to color distortion
+of images [6]. The variation of different lighting, microscopes, imaging sensors, and staining techniques create a problem for software with fixed color and threshold parameters. Hues and intensities can be shifted from the ideal that the segmentation algorithm was calibrated for. Additionally, uneven lighting, staining, and poor focus can add noise that distorts color information. In
+IHC analysis, where color fidelity is of prime importance, these factors create a unique problem. While human visual systems are effective at correcting for distortions, computer algorithms must be developed to correct for these distortions in software digital image analysis.
+
+There are a number of normalization algorithms available that can potentially solve these
+problems. Some suggest normalizing stains by mapping color information of a color shifted source
+image to a target image with an ideal color profile [26]. This has the potential to correct for shifted
+color and intensities but introduces the possibility of erroneously shifting extreme stain profiles to the median. For example, if an image had near-complete coverage with DAB-stained cells, it would be incorrectly shifted to match the color profile of an image with average DAB staining---potentially
+losing information.
+
+A second class of color correction algorithms are the \textit{retinex} class of algorithms. These attempt to emulate the human ability of color constancy as indicated by the contraction of \textit{retina} and \textit{cortex}. Color constancy is the illusion of seeing colors in relation to their surroundings rather than by the object’s color alone. The \textit{multiscale retinex with color restoration} (MSRCR) algorithm has the ability to enhance contrast locally and correct for shifted colors based on the image’s background lighting, it can also be performed on the intensity channel alone to correct for brightness distortion while preserving color information [32].
+
+
+\begin{figure}[H]
+  \centerline{\includegraphics[width=10cm]{13ColorConstancyIllusion.png}}
+  \caption{In reality, both squares A and B are the same color, yet
+cylinder’s shadow makes B appear lighter than A. An
+example of the color constancy effect. [33]}
+  \label{fig:Color Constancy Illusion}
+\end{figure}
+
+
+A final consideration is the growing field of artificial neural networks (ANN) and deep learning.
+These algorithms are becoming increasingly successful at pattern recognition in both data and images
+(with convolutional neural networks---CNNs). They are also capable of being trained, a unique
+property with great potential for the task of histological specimen analysis. Some researchers have
+shown success with CNNs for cell detection, although extremely large training data sets are required if
+the network is to be robust across diverse image conditions [34]. Long ANN training times also create a
+problem for experimentation on novel IHC experiments, unfortunately. These two matters illustrate the
+need for more open data and open software as sharing of image sets and trained classifiers would
+accelerate research and the time required for these systems to reach clinical practice.
+
+\newpage
+\subsubsection*{ACKNOWLEDGMENT---The author would like to thank}
+
+Karmanos Cancer Institute for access to digital microscopes and facilities for research. Dr. Lawrence
+G. Lum for providing access to the collection of images used for this project and materials used for
+staining and imaging more slides. Dr. Archana Thakur for providing guidance, human-scored slide
+data, and encouragement. Abhinav Deol for serving as the faculty mentor for the undergraduate
+research project. And the Undergraduate Research Opportunities Program at Wayne State University for funding this project.
+
+
+\
+
+\section*{References and Notes}
+
+\noindent[1] SEER Stat fact Sheets: Female Breast Cancer. Surveillance, Epidemiology, and End Results
+Program. http://seer.cancer.gov/statfacts/html/breast.html. Accessed August 20, 2016.
+
+\noindent[2] Cataldo SD, Ficarra E, Macii E. Computer-aided techniques for chromogenic
+immunohistochemistry: Status and directions. \textit{Computers in Biology and Medicine.} 2012;42:1012-
+1025.
+
+\noindent[3] Umemura S, Osamura RY. Utility of immunohistochemistry in breast cancer practice. Breast
+Cancer. 2004;11:334-338.
+
+\noindent[4] Bernardo V, Lourenço SQC, Cruz R, et al. Reproducibility of Immunostaining Quantification and
+Description of a New Digital Image Processing Procedure for Quantitative Evaluation of
+Immunohistochemistry in Pathology. Microscopy and Microanalysis. 2009;15:353-365.
+
+\noindent[5] Zaha DC. Significance of immunohistochemistry in breast cancer. World journal of clinical
+oncology. 2014;5:382
+
+\noindent[6] Gavrilovic M, Azar JC, Lindblad J, et al. Blind Color Decomposition of Histological Images. IEEE
+Transactions on Medical Imaging. 2013;32:983-994.
+
+\noindent[7] Carlson RW, Moench SJ, Hammond ME, et al. HER2 testing in breast cancer: NCCN Task Force
+report and recommendations. Journal of the National Comprehensive Cancer Network. 2006; 4 Suppl
+3: S1-22; quiz S23-4 [PMID:
+16813731]
+
+\noindent[8] Bilous M, Dowsett M, Hanna W, et al. Current Perspectives on HER2 Testing: A Review of
+National Testing Guidelines. Modern Pathology. 2003;16:173-182.
+
+\noindent[9] Mao Y, Qu Q, Chen X, Huang O, Wu J, Shen K. The Prognostic Value of Tumor-Infiltrating
+Lymphocytes in Breast Cancer: A Systematic Review and Meta-Analysis. PLoS One.
+2016;11:e0152500.
+
+\noindent[10] Yu X, Zhang Z, Wang Z, Wu P, Qiu F, Huang J. Prognostic and predictive value of tumor-
+infiltrating lymphocytes in breast cancer: a systematic review and meta-analysis. Clinical and
+Translational Oncology. 2016;18:497-506.
+
+\noindent[11] Mahmoud SMA, Paish EC, Powe DG, et al. Tumor-Infiltrating CD8+ Lymphocytes Predict
+Clinical Outcome in Breast Cancer. Journal of Clinical Oncology. 2011;29:1949.
+
+\noindent[12] Gu-Trantien C, Loi S, Garaud S, et al. CD4+ follicular helper T cell infiltration predicts breast
+cancer survival. The Journal of clinical investigation. 2013;123:2873.
+
+\noindent[13] Hamidullah, Changkija B, Konwar R. Role of interleukin-10 in breast cancer. Breast Cancer
+Research and Treatment. 2012;133:11-21
+
+\noindent[14] Mocellin S, Marincola FM, Young HA. Interleukin-10 and the immune response against cancer: a
+counterpoint. Journal of Leukocyte Biology. 2005;78:1043-1051.
+
+\noindent[15] Kundu N, Beaty TL, Jackson MJ, Amy M. Antimetastatic and antitumor activities of interleukin
+10 in a murine model of breast cancer. Journal of the National Cancer Institute. 1996;88(8).
+
+\noindent[16] Zheng LM, Ojcius DM, Garaud F, et al. Interleukin-10 inhibits tumor metastasis through an NK
+cell-dependent mechanism. The Journal of experimental medicine. 1996;184:579-584.
+
+\noindent[17] Zaidi MR, Merlino G. The two faces of interferon-γ in cancer. Clinical cancer research: an
+official journal of the American Association for Cancer Research. 2011;17:6118-6124.
+
+\noindent[18] Cataldo SD, Ficarra E, Macii E. Computer-aided techniques for chromogenic
+immunohistochemistry: Status and directions. Computers in Biology and Medicine. 2012;42:1012-
+1025.
+
+\noindent[19] Singh R, Gosavi A, Agashe S, Sulhyan K. Interobserver reproducibility of Gleason grading of
+prostatic adenocarcinoma among general pathologists. Indian Journal of Cancer. 2011;48:488-495.
+
+\noindent[20] Bernardo V, Lourenço SQC, Cruz R, et al. Reproducibility of Immunostaining Quantification and
+Description of a New Digital Image Processing Procedure for Quantitative Evaluation of
+Immunohistochemistry in Pathology. Microscopy and Microanalysis. 2009;15:353-365.
+
+\noindent[21] Walker RA. Quantification of immunohistochemistry---issues concerning methods, utility and
+semiquantitative assessment I. Histopathology. 2006;49:406-410.
+
+\noindent[22] Benali A, Leefken I, Eysel UT, Weiler E. A computerized image analysis system for quantitative
+analysis of cells in histological brain sections. Journal of Neuroscience Methods. 2003;125:33-43.
+
+\noindent[23] Rizzardi AE, Johnson AT, Vogel RI, et al. Quantitative comparison of immunohistochemical
+staining measured by digital image analysis versus pathologist visual scoring. Diagnostic pathology.
+2012;7:42-42.
+
+\noindent[24] Taylor CR, Levenson RM. Quantification of immunohistochemistry---issues concerning methods,
+utility and semiquantitative assessment II. \textit{Histopathology.} 2006;49:411-424.
+
+\noindent[25] Ruifrok AC, Johnston DA. Quantification of histochemical staining by color deconvolution. \textit{Anal
+Quant Cytol Histol.} 23: 291-299, 2001.
+
+\noindent[26] Khan AM, Rajpoot N, Treanor D, Magee D. A Nonlinear Mapping Approach to Stain
+Normalization in Digital Histopathology Images Using Image-Specific Color Deconvolution. \textit{IEEE
+Transactions on Biomedical Engineering.} 2014;61:1729-1738.
+
+\noindent[27] Di Cataldo S, Ficarra E, Acquaviva A, Macii E. Automated segmentation of tissue images for
+computerized IHC analysis. \textit{Computer Methods and Programs in Biomedicine.} 2010;100:1-15.
+
+\noindent[28] Niazi MKK, Satoskar A a., Gurcan MN. An automated method for counting cytotoxic T-cells
+from CD8 stained images of renal biopsies. 2013;8676:867606. doi:10.1117/12.2007977.
+
+\noindent[29] Tuominen VJ, Ruotoistenmäki S, Viitanen A, Jumppanen M, Isola J. ImmunoRatio: a publiclyavailable web application for quantitative image analysis of estrogen receptor (ER), progesterone
+receptor (PR), and Ki-67. \textit{Breast cancer research : BCR.} 2010;12:R56-R56.
+
+\noindent[30] Coelho LP, Shariff A, Murphy RF. Nuclear segmentation in microscope cell images: A hand-segmented dataset and comparison of algorithms. \textit{2009 IEEE Int Symp Biomed Imaging From Nano to Macro.} 2009:518-521. doi:10.1109/ISBI.2009.5193098.
+
+\noindent[31] Grady L. Random Walks for Image Segmentation. \textit{IEEE Transactions on Pattern Analysis and
+Machine Intelligence.} 2006;28:1768-1783.
+
+\noindent[32] Petro AB, Sbert C, Morel J. Multiscale Retinex. \textit{Image Processing On Line.} 2014;4:71-88.
+
+\noindent[33] Grey square optical illusion. Wikimedia commons. Accessed August 25, 2016. \url{https://en.wikipedia.org/wiki/Color_constancy#/media/File:Grey_square_optical_illusion.PNG}. 
+
+\noindent[34] Chen T, Chefd’hotel C. Deep Learning Based Automatic Immune Cell Detection for
+Immunohistochemistry Images. In: Wu G, Zhang D, Zhou L, eds. \textit{Machine Learning in Medical
+Imaging: 5th International Workshop, MLMI 2014, Held in Conjunction with MICCAI 2014, Boston,
+MA, USA, September 14, 2014. Proceedings.} Cham: Springer International Publishing; 2014:17-24. 
+doi:10.1007/978-3-319-10581-9\_3.
 
 
 \end{document}
