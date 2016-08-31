@@ -345,9 +345,7 @@ R   & G   & B   &                                    \\ \hline
 \end{tabular}
 \end{table}
 
-\noindent The inverse of the normalized matrix is then calculated; the result is the color deconvolution matrix.
-
-\begin{math}C = M^{-1}[y] = D[y]\end{math} [25]
+\noindent The inverse of the normalized matrix is then calculated; the result is the color deconvolution matrix. \begin{math}C = M^{-1}[y] = D[y]\end{math} [25]
 
 
 \begin{table}[H]
@@ -455,7 +453,7 @@ DAB (CD3) percent coverage & 17.2\% \\ \hline
 Hematoxylin percent coverage & 13.6\% \\ \hline
 Permanent red (IFN$\gamma$) percent coverage & 0.2\% \\ \hline
 DAB \& hematoxylin area combined & 24.7\% \\ \hline
-DAB area / (DAB \& hema & 69.7\% \\ \hline
+DAB area / (DAB \& hema) & 69.7\% \\ \hline
 \end{tabular}
 \end{table}
 
@@ -505,7 +503,7 @@ DAB (CD3) percent coverage & 27.5\% \\ \hline
 Hematoxylin percent coverage & 52.4\% \\ \hline
 Permanent red (IFN$\gamma$) percent coverage & 4.6\% \\ \hline
 DAB \& hematoxylin area combined & 59.8\% \\ \hline
-DAB area / (DAB \& hema & 45.9\% \\ \hline
+DAB area / (DAB \& hema) & 45.9\% \\ \hline
 \end{tabular}
 \end{table}
 
@@ -541,14 +539,12 @@ image to a target image with an ideal color profile [26]. This has the potential
 color and intensities but introduces the possibility of erroneously shifting extreme stain profiles to the median. For example, if an image had near-complete coverage with DAB-stained cells, it would be incorrectly shifted to match the color profile of an image with average DAB staining---potentially
 losing information.
 
-A second class of color correction algorithms are the \textit{retinex} class of algorithms. These attempt to emulate the human ability of color constancy as indicated by the contraction of \textit{retina} and \textit{cortex}. Color constancy is the illusion of seeing colors in relation to their surroundings rather than by the object’s color alone. The \textit{multiscale retinex with color restoration} (MSRCR) algorithm has the ability to enhance contrast locally and correct for shifted colors based on the image’s background lighting, it can also be performed on the intensity channel alone to correct for brightness distortion while preserving color information [32].
+A second class of color correction algorithms are the \textit{retinex} class of algorithms. These attempt to emulate the human ability of color constancy as indicated by the contraction of \textit{retina} and \textit{cortex}. Color constancy is the illusion of seeing colors in relation to their surroundings rather than by the object's color alone. The \textit{multiscale retinex with color restoration} (MSRCR) algorithm has the ability to enhance contrast locally and correct for shifted colors based on the image's background lighting, it can also be performed on the intensity channel alone to correct for brightness distortion while preserving color information [32].
 
 
 \begin{figure}[H]
   \centerline{\includegraphics[width=10cm]{13ColorConstancyIllusion.png}}
-  \caption{In reality, both squares A and B are the same color, yet
-cylinder’s shadow makes B appear lighter than A. An
-example of the color constancy effect. [33]}
+  \caption{In reality, both squares A and B are the same color. In the context of the cylinder's shadow, B appears lighter than A. This is an example of the color constancy effect of human perception. [33]}
   \label{fig:Color Constancy Illusion}
 \end{figure}
 
@@ -649,7 +645,7 @@ Immunohistochemistry in Pathology. \textit{Microscopy and Microanalysis.} 2009;1
 
 \noindent[33] Grey square optical illusion. Wikimedia commons. Accessed August 25, 2016. \url{https://en.wikipedia.org/wiki/Color_constancy#/media/File:Grey_square_optical_illusion.PNG}. 
 
-\noindent[34] Chen T, Chefd’hotel C. Deep Learning Based Automatic Immune Cell Detection for Immunohistochemistry Images. In: Wu G, Zhang D, Zhou L, eds. \textit{Machine Learning in Medical Imaging: 5th International Workshop, MLMI 2014, Held in Conjunction with MICCAI 2014, Boston, MA, USA, September 14, 2014. Proceedings.} Cham: Springer International Publishing; 2014:17-24. doi:10.1007/978-3-319-10581-9\_3.
+\noindent[34] Chen T, Chefd'hotel C. Deep Learning Based Automatic Immune Cell Detection for Immunohistochemistry Images. In: Wu G, Zhang D, Zhou L, eds. \textit{Machine Learning in Medical Imaging: 5th International Workshop, MLMI 2014, Held in Conjunction with MICCAI 2014, Boston, MA, USA, September 14, 2014. Proceedings.} Cham: Springer International Publishing; 2014:17-24. doi:10.1007/978-3-319-10581-9\_3.
 
 
 \end{document}
