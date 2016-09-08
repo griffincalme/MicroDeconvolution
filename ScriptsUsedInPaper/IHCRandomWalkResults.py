@@ -35,8 +35,8 @@ hrd_from_rgb = linalg.inv(rgb_from_hrd)
 
 
 #Import picture
-ihc_rgb = imread(r'TestImage.jpg')
-
+#ihc_rgb = imread(r'TestImage.jpg')
+ihc_rgb = imread(r'TimedRunImage.jpg')
 
 # Rescale signals so that intensity ranges from 0 to 1
 # ihc_hrd[:, :, (0,1, or 2 -- is the color channel)]

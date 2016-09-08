@@ -53,7 +53,8 @@ def RunScript():
     hrd_from_rgb = linalg.inv(rgb_from_hrd)
 
     # Import picture
-    ihc_rgb = imread(r'TestImage.jpg')
+    #ihc_rgb = imread(r'TestImage.jpg')
+    ihc_rgb = imread(r'TimedRunImage.jpg')
 
     # Rescale signals so that intensity ranges from 0 to 1
     # ihc_hrd[:, :, (0,1, or 2 -- is the color channel)]
@@ -80,9 +81,9 @@ def RunScript():
         return markers
 
     # perform Random Walker, fills in positive regions
-    DAB_segmentation = random_walker(DAB_Grey_Array, get_markers(DAB_Grey_Array, .3, .5), beta=130, mode='cg_mg')
-    Hema_segmentation = random_walker(Hema_Gray_Array, get_markers(Hema_Gray_Array, .2, .4), beta=130, mode='cg_mg')
-    permRed_segmentation = random_walker(permRed_Gray_Array, get_markers(permRed_Gray_Array, .4, .5), beta=130, mode='cg_mg')
+    DAB_segmentation = random_walker(DAB_Grey_Array, get_markers(DAB_Grey_Array, .3, .5), beta=130, mode='bf')
+    Hema_segmentation = random_walker(Hema_Gray_Array, get_markers(Hema_Gray_Array, .2, .4), beta=130, mode='bf')
+    permRed_segmentation = random_walker(permRed_Gray_Array, get_markers(permRed_Gray_Array, .4, .5), beta=130, mode='bf')
 
     """PRINTING OUTPUT"""
 
@@ -191,6 +192,8 @@ def RunScript():
 
 def timed_run(trials):
     summed_duration = 0
+    min_duration = 9999999
+    max_duration = 0
 
     for i in range(trials):
         start = time.clock()
@@ -200,9 +203,17 @@ def timed_run(trials):
         print('\n This process took ' + str(round((duration), 2)) + ' seconds to complete')
         summed_duration = duration + summed_duration
 
+        if max_duration < duration:
+            max_duration = duration
+
+        if min_duration > duration:
+            min_duration = duration
+
     average_duration = summed_duration / trials
     print(20 * '-')
-    print('\n Average runtime over ' + str(trials) + ' trials was ' + str(round(average_duration, 2)))
+    print('\nAverage runtime over ' + str(trials) + ' trials was ' + str(round(average_duration, 2)))
 
+    print('Max duration: ' + str(round(max_duration,2)))
+    print('Min duration: ' + str(round(min_duration, 2)))
 
-timed_run(trials=5)
+timed_run(trials=10)

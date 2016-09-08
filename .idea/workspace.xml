@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8049c956-60a0-46c7-85a1-97daec6b443b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/MicroDeconvolution.iml" afterPath="$PROJECT_DIR$/.idea/MicroDeconvolution.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkResults.py" afterPath="$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkResults.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkTimed.py" afterPath="$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkTimed.py" />
     </list>
     <ignored path="MicroDeconvolution.iws" />
@@ -20,7 +18,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/MicroDeconvolution$IHCRandomWalkResults.coverage" NAME="IHCRandomWalkResults Coverage Results" MODIFIED="1473293177392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ScriptsUsedInPaper" />
     <SUITE FILE_PATH="coverage/MicroDeconvolution$IHCRandomWalkPaper.coverage" NAME="IHCRandomWalkPaper Coverage Results" MODIFIED="1472941378775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ScriptsUsedInPaper" />
-    <SUITE FILE_PATH="coverage/MicroDeconvolution$IHCRandomWalkTimed.coverage" NAME="IHCRandomWalkTimed Coverage Results" MODIFIED="1473296035646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ScriptsUsedInPaper" />
+    <SUITE FILE_PATH="coverage/MicroDeconvolution$IHCRandomWalkTimed.coverage" NAME="IHCRandomWalkTimed Coverage Results" MODIFIED="1473297700913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ScriptsUsedInPaper" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -34,8 +32,8 @@
       <file leaf-file-name="IHCRandomWalkTimed.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkTimed.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2230">
-              <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+            <state relative-caret-position="490">
+              <caret line="101" column="78" selection-start-line="101" selection-start-column="78" selection-end-line="101" selection-end-column="78" />
               <folding>
                 <element signature="e#623#641#0" expanded="true" />
               </folding>
@@ -46,8 +44,8 @@
       <file leaf-file-name="IHCRandomWalkResults.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkResults.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+            <state relative-caret-position="-20">
+              <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
               <folding>
                 <element signature="e#174#192#0" expanded="true" />
               </folding>
@@ -58,7 +56,7 @@
       <file leaf-file-name="IHCRandomWalkPaper.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkPaper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="-2060">
               <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="e#199#217#0" expanded="true" />
@@ -463,7 +461,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3288854" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3288854" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -574,32 +572,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkTimed.py">
+    <entry file="file://$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkPaper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2230">
-          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        <state relative-caret-position="-2060">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#623#641#0" expanded="true" />
+            <element signature="e#199#217#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkResults.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+        <state relative-caret-position="-20">
+          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
           <folding>
             <element signature="e#174#192#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkPaper.py">
+    <entry file="file://$PROJECT_DIR$/ScriptsUsedInPaper/IHCRandomWalkTimed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="490">
+          <caret line="101" column="78" selection-start-line="101" selection-start-column="78" selection-end-line="101" selection-end-column="78" />
           <folding>
-            <element signature="e#199#217#0" expanded="true" />
+            <element signature="e#623#641#0" expanded="true" />
           </folding>
         </state>
       </provider>
