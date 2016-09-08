@@ -38,8 +38,6 @@ for the random walker segmentation algorithm.
 ###TestImage.jpg
 A cropped de-identified test image for use in these scripts.
 
-#Presentation
-Final report, presentation, and images used.
 
 #TestingScripts
 ##Where I have been developing new ideas.
