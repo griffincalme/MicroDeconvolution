@@ -81,9 +81,9 @@ def RunScript():
         return markers
 
     # perform Random Walker, fills in positive regions
-    DAB_segmentation = random_walker(DAB_Grey_Array, get_markers(DAB_Grey_Array, .3, .5), beta=130, mode='bf')
-    Hema_segmentation = random_walker(Hema_Gray_Array, get_markers(Hema_Gray_Array, .2, .4), beta=130, mode='bf')
-    permRed_segmentation = random_walker(permRed_Gray_Array, get_markers(permRed_Gray_Array, .4, .5), beta=130, mode='bf')
+    DAB_segmentation = random_walker(DAB_Grey_Array, get_markers(DAB_Grey_Array, .3, .5), beta=130, mode='cg')
+    Hema_segmentation = random_walker(Hema_Gray_Array, get_markers(Hema_Gray_Array, .2, .4), beta=130, mode='cg')
+    permRed_segmentation = random_walker(permRed_Gray_Array, get_markers(permRed_Gray_Array, .4, .5), beta=130, mode='cg')
 
     """PRINTING OUTPUT"""
 
@@ -216,4 +216,4 @@ def timed_run(trials):
     print('Max duration: ' + str(round(max_duration,2)))
     print('Min duration: ' + str(round(min_duration, 2)))
 
-timed_run(trials=10)
+timed_run(trials=3)
