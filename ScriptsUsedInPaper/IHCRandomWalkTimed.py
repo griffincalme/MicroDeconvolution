@@ -32,7 +32,7 @@ from skimage.segmentation import random_walker
 from skimage import morphology
 from skimage.filters import sobel
 
-from pyamg import *
+#from pyamg import *
 import time
 
 
