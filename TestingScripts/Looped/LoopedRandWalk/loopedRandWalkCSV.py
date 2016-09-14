@@ -180,14 +180,14 @@ for image_path in full_file_paths:
 
 
             #Append CSV with program output
-            with open('ProgOutputThresh.csv', 'a', newline='') as fp:
+            with open('ProgOutputRW.csv', 'a', newline='') as fp:
                 a = csv.writer(fp, delimiter=',')
                 newrow = [[str(pic_file_name), str(DAB_coverage_percent), str(Hema_coverage_percent), str(total_cell_percent), str(percent_pos_cells), str(proportion_score), str(Red_coverage_percent), str(adjusted_red_coverage_percent)]]
                 a.writerows(newrow)
 
 
         except:
-            with open('ProgOutputThresh.csv', 'a', newline='') as fp:
+            with open('ProgOutputRW.csv', 'a', newline='') as fp:
                 a = csv.writer(fp, delimiter=',')
                 newrow = [["error in picture file"]]
                 a.writerows(newrow)
