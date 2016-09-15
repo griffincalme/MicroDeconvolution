@@ -20,7 +20,7 @@ import csv
 
 
 #Enter the master directory
-PictureDirectory = r'C:\Users\Griffin\Documents\+School\UROP\LumLab\Images\AllUsablePics'
+PictureDirectory = r'/media/griffin/Seagate Backup Plus Drive/UROP Backup/MasterImages/UsableBrCaPics'
 
 def get_filepaths(directory):
     file_paths = []  # List which will store all of the full filepaths.
@@ -69,7 +69,7 @@ def get_markers(grey_array, bottom_thresh, top_thresh):
 print(full_file_paths)
 
 # CSV Table
-with open('ProgOutputThresh.csv', 'a', newline='') as fp:
+with open('ProgOutputRW.csv', 'a', newline='') as fp:
     a = csv.writer(fp, delimiter=',')
     firstrow = [['file name', '% DAB pixels', '% Hematoxylin pixels', '% DAB & Hema', '% CD3+', 'proportion score', '% cytokine', '% cytokine (non-cellular regions subtracted)']]
     a.writerows(firstrow)

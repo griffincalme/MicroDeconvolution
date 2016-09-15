@@ -21,7 +21,7 @@ from pyamg import *
 import os
 
 #Enter the master directory
-PictureDirectory = r'C:\Users\Griffin\Documents\+School\UROP\LumLab\Images\AllUsablePics'
+PictureDirectory = r'/media/griffin/Seagate Backup Plus Drive/UROP Backup/MasterImages/UsableBrCaPics'
 
 
 def get_filepaths(directory):
