@@ -59,7 +59,7 @@ This example outputs the values for permanent red.
 
 
 ###Looped
-These scripts iterate over a folder of IHC images and either output images or a csv of the data.
+These scripts iterate over a folder of IHC images and either output processed images or a csv of the data.
 
 
 #Website
